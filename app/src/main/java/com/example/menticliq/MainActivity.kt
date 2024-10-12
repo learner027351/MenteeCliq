@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.menticliq.Screens.Studentform
+import com.example.menticliq.Screens.rfa
 import com.example.menticliq.ui.theme.MentiCliqTheme
 
 class MainActivity : ComponentActivity() {
@@ -19,8 +20,11 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
+
             MentiCliqTheme {
+                rfa()
                 Studentform()
+
             }
         }
     }
