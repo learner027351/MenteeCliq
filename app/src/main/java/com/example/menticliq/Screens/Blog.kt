@@ -24,6 +24,7 @@ import androidx.compose.material.icons.filled.Help
 import androidx.compose.material.icons.filled.History
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Notifications
+import androidx.compose.material.icons.filled.PostAdd
 import androidx.compose.material.icons.filled.QuestionMark
 import androidx.compose.material.icons.filled.Wallet
 import androidx.compose.material3.Icon
@@ -31,6 +32,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.currentCompositionLocalContext
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -44,6 +46,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.menticliq.R
+import kotlin.coroutines.coroutineContext
+
 
 @Composable
 fun BlogScreenApp() {
@@ -82,7 +86,8 @@ fun BlogHeader(){
                 color = Color.White
             )
             Row {
-                IconButton(onClick = {
+                IconButton(
+                    onClick ={
 
                 }) {
                     Icon(
@@ -191,7 +196,7 @@ fun navigationBar(){
                 onClick = {}
             ) {
                 Icon(
-                    painter = painterResource(id=R.drawable.blog),
+                    painter = painterResource(id = R.drawable.blg),
                     contentDescription = "Blogs",
                     tint=Color.White
                 )
