@@ -21,9 +21,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.menties.R
+import com.example.menticliq.R
+
 
 @Composable
 fun SignupScreen() {
@@ -51,7 +53,7 @@ fun SignupScreen() {
                 mutableStateOf("")
             }
             Image(
-                painter = painterResource(id = R.drawable.conversation_102339),
+                painter = painterResource(id = R.drawable.mentic),
                 contentDescription = null,
                 modifier = Modifier
                     .padding(top = 16.dp)
@@ -106,4 +108,10 @@ fun SignupScreen() {
 
         }
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun SignupScreenPreview() {
+    SignupScreen()
 }
