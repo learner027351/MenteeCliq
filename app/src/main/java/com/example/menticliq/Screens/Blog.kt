@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.EmojiEvents
@@ -26,6 +27,7 @@ import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.PostAdd
 import androidx.compose.material.icons.filled.QuestionMark
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Wallet
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -33,6 +35,10 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.currentCompositionLocalContext
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -53,13 +59,14 @@ import kotlin.coroutines.coroutineContext
 fun BlogScreenApp() {
     Surface(
         modifier = Modifier.fillMaxSize(),
-        color = Color(0xFFEBFAFE)
+        color = Color(0xFF12BBE7)
     ) {
         Column (
             modifier = Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.SpaceBetween
         ){
             BlogHeader()
+            SearchBar1()
             BlogList()
             navigationBar()
         }
@@ -115,6 +122,46 @@ fun BlogHeader(){
                     )
                 }
             }
+        }
+    }
+}
+
+@Composable
+fun SearchBar1(){
+    var searchText by remember { mutableStateOf("") }
+    Box(modifier = Modifier
+        .fillMaxWidth()
+        .padding(horizontal = 16.dp, vertical = 8.dp)
+        .background(Color.White)
+        .height(28.dp),
+        contentAlignment = Alignment.CenterStart
+    ){
+        Row (
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier
+                .padding(horizontal = 16.dp)
+                .fillMaxWidth()
+        ){
+            Icon(
+                imageVector = Icons.Default.Search,
+                contentDescription = "Search",
+                tint = Color.Gray
+            )
+            Spacer(modifier = Modifier.width(8.dp))
+            BasicTextField(
+                value =searchText,
+                onValueChange = {searchText=it},
+                modifier = Modifier.fillMaxWidth(),
+                decorationBox = {innerTextField->
+                    if(searchText.isEmpty()){
+                        Text(
+                            text = "Search Events",
+                            color = Color.Gray
+                        )
+                    }
+                    innerTextField()
+                }
+            )
         }
     }
 }

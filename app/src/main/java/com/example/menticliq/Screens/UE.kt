@@ -128,7 +128,7 @@ fun SearchBar(){
         .fillMaxWidth()
         .padding(horizontal = 16.dp, vertical = 8.dp)
         .background(Color.White)
-        .height(48.dp),
+        .height(28.dp),
         contentAlignment = Alignment.CenterStart
     ){
         Row (
