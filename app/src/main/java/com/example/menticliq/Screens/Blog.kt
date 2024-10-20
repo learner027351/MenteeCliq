@@ -71,7 +71,7 @@ fun BlogHeader(){
         modifier = Modifier
             .fillMaxWidth()
             .background(Color.DarkGray)
-            .padding(16.dp),
+            .padding(26.dp),
         contentAlignment = Alignment.Center
     ){
         Row (
@@ -100,8 +100,8 @@ fun BlogHeader(){
 
                 }) {
                     Icon(
-                        imageVector = Icons.Default.Wallet,
-                        contentDescription = "Wallet",
+                        painter = painterResource(id=R.drawable.ic_profile),
+                        contentDescription = "Profile",
                         tint = Color.White
                     )
                 }
@@ -123,6 +123,7 @@ fun BlogList(){
     val scrollState= rememberScrollState()
     Column (
         modifier = Modifier
+            .background(Color(0xFF14A2C6))
             .verticalScroll(scrollState).padding(16.dp),
     ){
         repeat(10){index->
